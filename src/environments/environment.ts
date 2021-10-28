@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  phoneValidationApi: 'http://apilayer.net/api',
+  access_key: '07defaea2b05bbc426b44f59297af250'
 };
 
 /*
