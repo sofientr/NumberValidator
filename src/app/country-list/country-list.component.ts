@@ -12,8 +12,6 @@ import {MatSelectChange} from '@angular/material/select';
 })
 export class CountryListComponent implements OnInit {
   @Output() countryChange = new EventEmitter<any>();ù
-  
-
 
   constructor(private service:PhoneValidationApiService ) { }
   

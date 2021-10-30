@@ -15,7 +15,6 @@ export class HomeComponent implements OnInit {
   phoneNumber = new FormControl('', [Validators.required]);
   selectedCountry:any;
   constructor(private service:PhoneValidationApiService) { }
-  
 
   ngOnInit(): void {
   }
@@ -24,7 +23,7 @@ export class HomeComponent implements OnInit {
     this.validateNumber()
   }
   
-  changeCountry(country: any) {
+  selectCountry(country: any) {
     this.selectedCountry = country;
   }
 
