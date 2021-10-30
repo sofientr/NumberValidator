@@ -1,9 +1,10 @@
 <mat-form-field >
-    <mat-select placeholder="Country (optional)">
+    <mat-select placeholder="Country" (selectionChange)="selectCountry($event)">
       <mat-option *ngFor="let country of countryInfo  | keyvalue" [value]="country">
         <mat-icon>
           <img [src]="'https://flagcdn.com/' + country.key.toLowerCase() + '.svg'"  width="20"/>
-        </mat-icon> {{ country.value.country_name }} ({{country.value.dialling_code}})
+        </mat-icon> {{ country.value.country_name }}({{country.value.dialling_code}})
       </mat-option>
     </mat-select>
   </mat-form-field>
+  

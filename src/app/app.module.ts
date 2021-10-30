@@ -2,7 +2,6 @@ import {  HttpClientModule } from '@angular/common/http';
 import { PhoneValidationApiService } from './services/phone-validation-api.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -17,11 +16,13 @@ import {MatButtonModule} from '@angular/material/button';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    CountryListComponent
+    CountryListComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -33,7 +34,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatFormFieldModule,
      MatIconModule,
     MatInputModule,
-    MatButtonModule,ReactiveFormsModule,MatSnackBarModule
+    MatButtonModule,
+    ReactiveFormsModule,
+    MatSnackBarModule
 
   ],
   providers: [PhoneValidationApiService],

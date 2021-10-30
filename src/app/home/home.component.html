@@ -1,7 +1,40 @@
-<p>home works!</p>
 
-<app-country-list ></app-country-list>
-
-
-
+  <div class="login-form-flex">
+    <mat-card>
   
+      <mat-card-content>
+        
+          <app-country-list (countryChange)="selectCountry($event)"></app-country-list>
+        
+        <br/>
+        <mat-form-field >
+          <mat-label>Phone Number</mat-label>
+          <input matInput 
+                 placeholder=""
+                 [formControl]="phoneNumber"
+                 type="number">
+          <mat-error *ngIf="phoneNumber.hasError('required')">
+            Phone number is <strong>required</strong>
+          </mat-error>
+          
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions>
+        <div class="button">
+          <button mat-raised-button color="primary"
+          color="primary"
+          [disabled]="phoneNumber.invalid "
+          (click)="validateNumber()">
+    Validate Number
+  </button>        </div>
+      </mat-card-actions>
+      <div *ngIf="(validationResult | async) as validationResult"  >
+        <div *ngIf="validationResult.success === false || validationResult.valid === false" class="alert alert-danger">
+              <span>                     {{validationResult.success === false ? validationResult?.error?.info : " invalid phone number"}}
+</span>
+        </div>
+     
+    </div>
+    </mat-card>
+
+  </div>

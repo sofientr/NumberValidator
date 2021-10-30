@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   phoneValidationApi: 'http://apilayer.net/api',
-  access_key: '07defaea2b05bbc426b44f59297af250'
+  access_key: 'eb588dbf70cb81df1c8d374269db9d18'
 };
 
 /*

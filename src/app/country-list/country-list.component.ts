@@ -1,6 +1,8 @@
-import { PhoneValidationApiService } from './../services/phone-validation-api.service';
-import { Component, OnInit } from '@angular/core';
+import { PhoneValidationApiService, } from './../services/phone-validation-api.service';
+import { Component, OnInit,Output, EventEmitter } from '@angular/core';
 import {Observable} from 'rxjs';
+
+import {MatSelectChange} from '@angular/material/select';
 
 
 @Component({
@@ -9,8 +11,11 @@ import {Observable} from 'rxjs';
   styleUrls: ['./country-list.component.css']
 })
 export class CountryListComponent implements OnInit {
+  @Output() countryChange = new EventEmitter<any>();ù
+  
 
-  constructor(private country:PhoneValidationApiService ) { }
+
+  constructor(private service:PhoneValidationApiService ) { }
   
   countryInfo: Observable<any[]>;
 
@@ -19,16 +24,19 @@ export class CountryListComponent implements OnInit {
 
   }
   getCountries(){
-    this.country.getCountryList().
+    this.service.getCountryList().
     subscribe(
       data => {
         
         this.countryInfo=data;
-        console.log('Data:', this.countryInfo);
       },
       err => console.log(err),
       () => console.log('complete')
     )
   }
-
+  
+  selectCountry(selectedCountry: MatSelectChange) {
+    this.countryChange.emit(selectedCountry.value);
+  } 
+ 
 }
